@@ -26,4 +26,10 @@ class MovieController extends Controller
 
         return view('movies_show', ['movie' => $movie]);
     }
+
+    public function random() {
+        $movie = Movie::inRandomOrder()->first();
+        $movie_id = $movie->id;
+        return redirect('/movies/' . $movie_id);
+    }
 }

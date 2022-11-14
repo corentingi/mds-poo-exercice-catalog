@@ -37,6 +37,9 @@
             <a href="/movies?order_by=averageRating&order=desc">
                 <h3>Best rated movies</h1>
             </a>
+            <a href="/movies/random">
+                <h3>Random movie</h1>
+            </a>
         </div>
 
         <div class="wrapper">
