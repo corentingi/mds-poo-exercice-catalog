@@ -21,4 +21,5 @@ Route::get('/', function () {
     return view('home', ['movies' => $movies]);
 });
 
+Route::get('/movies', [MovieController::class, 'list']);
 Route::get('/movies/{id}', [MovieController::class, 'show']);

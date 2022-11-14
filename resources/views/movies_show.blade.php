@@ -22,7 +22,7 @@
 <body>
     <div class="container">
         <div style="padding-bottom: 1rem;">
-            <a href="/">Retour</a>
+            <button onclick="history.back()">Go Back</button>
         </div>
 
         <div>
