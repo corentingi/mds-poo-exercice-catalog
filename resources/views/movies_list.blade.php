@@ -25,7 +25,7 @@
 
         <div>
             <table>
-                @foreach ($movies as $movie)
+                @foreach ($movies_paginator as $movie)
                 <tr>
                     <td>
                         <img class="list_image" src="{{ $movie->poster }}" alt="{{ $movie->primaryTitle }}">
@@ -39,6 +39,10 @@
                 </tr>
                 @endforeach
             </table>
+        </div>
+
+        <div>
+            {{ $movies_paginator->links('paginator') }}
         </div>
     </div>
 </body>
