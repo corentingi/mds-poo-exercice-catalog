@@ -7,8 +7,16 @@ use Illuminate\Http\Request;
 
 class MovieController extends Controller
 {
-    public function list() {
-        $movies_paginator = Movie::paginate(20);
+    public function list(Request $request) {
+        $order_by = $request->query('order_by');
+        $order = $request->query('order', 'asc');
+
+        $query = Movie::query();
+        if ($order_by != null) {
+            $query->orderBy($order_by, $order);
+        }
+
+        $movies_paginator = $query->paginate(20);
 
         return view('movies_list', ['movies_paginator' => $movies_paginator]);
     }

@@ -31,6 +31,12 @@
             <a href="/movies">
                 <h3>Show all movies</h1>
             </a>
+            <a href="/movies?order_by=startYear&order=asc">
+                <h3>Newest movies</h1>
+            </a>
+            <a href="/movies?order_by=averageRating&order=desc">
+                <h3>Best rated movies</h1>
+            </a>
         </div>
 
         <div class="wrapper">
