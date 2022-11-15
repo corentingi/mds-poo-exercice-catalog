@@ -27,7 +27,7 @@
             <ul>
                 @foreach ($genres as $genre)
                 <li>
-                    {{ $genre->label }}
+                    <a href="/movies?genre={{ $genre->label }}">{{ $genre->label }}</a>
                 </li>
                 @endforeach
             </ul>

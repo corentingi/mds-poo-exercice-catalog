@@ -22,4 +22,20 @@ class Movie extends Model
      * @var bool
      */
     public $timestamps = false;
+
+    /**
+     * The genres that belong to the user.
+     */
+    public function genres()
+    {
+        return $this->belongsToMany(Genre::class, 'movies_genres');
+    }
+
+    /**
+     * Return the genres as a list.
+     */
+    public function genreList()
+    {
+        return $this->genres->map(function ($genre) { return $genre->label; })->toArray();
+    }
 }
