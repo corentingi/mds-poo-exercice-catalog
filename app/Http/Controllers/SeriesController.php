@@ -33,4 +33,16 @@ class SeriesController extends Controller
             'genres' => $genres,
         ]);
     }
+
+    public function show($id) {
+        $series_item = Series::where('id', $id)->first();
+
+        return view('series_show', ['series_item' => $series_item]);
+    }
+
+    public function random() {
+        $series = Series::inRandomOrder()->first();
+        $series_id = $series->id;
+        return redirect('/series/' . $series_id);
+    }
 }
