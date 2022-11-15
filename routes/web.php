@@ -3,6 +3,7 @@
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\SeriesController;
+use App\Models\Genre;
 use App\Models\Movie;
 use App\Models\Series;
 use Illuminate\Support\Facades\Route;

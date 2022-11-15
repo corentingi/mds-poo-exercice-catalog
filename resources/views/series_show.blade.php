@@ -61,6 +61,28 @@
         <p>
             {{ $series_item->plot }}
         </p>
+
+        <h2>Episodes</h2>
+        <p>
+            @foreach ($series_item->seasons() as $seasonNumber => $episodes)
+            <h3>Season {{ $seasonNumber }}</h3>
+            <table>
+                @foreach ($episodes->sortBy('episodeNumber') as $episodeNumber => $episode)
+                <tr>
+                    <td>{{ $episodeNumber }}</td>
+                    <td>
+                        <img src="{{ $episode->poster }}" alt="{{ $episode->originalTitle }}" style="width: 2rem">
+                    </td>
+                    <td>
+                        <a href="/series/{{ $series_item->id }}/season/{{ $seasonNumber }}/episode/{{ $episodeNumber }}">
+                            {{ $episode->originalTitle }}
+                        </a>
+                    </td>
+                </tr>
+                @endforeach
+            </table>
+            @endforeach
+        </p>
     </div>
 </body>
 </html>
