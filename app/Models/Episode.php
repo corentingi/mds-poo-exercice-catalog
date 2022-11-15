@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Movie extends Model
+class Episode extends Model
 {
     use HasFactory;
 
@@ -14,7 +14,7 @@ class Movie extends Model
      *
      * @var string
      */
-    protected $table = 'movies';
+    protected $table = 'episodes';
 
     /**
      * Indicates if the model should be timestamped.
@@ -24,18 +24,10 @@ class Movie extends Model
     public $timestamps = false;
 
     /**
-     * The genres that belong to the movie.
+     * The genres that belong to the episode.
      */
     public function genres()
     {
-        return $this->belongsToMany(Genre::class, 'movies_genres');
-    }
-
-    /**
-     * Return the genres as a list.
-     */
-    public function genreList()
-    {
-        return $this->genres->map(function ($genre) { return $genre->label; })->toArray();
+        return $this->belongsToMany(Genre::class, 'episodes_genres');
     }
 }
