@@ -39,12 +39,13 @@ class Series extends Model
     {
         $seasons = array();
         foreach ($this->episodes as $episode) {
-            $seasonNumber = $episode->seasonNumber ?: 'UNKNWOWN';
+            $seasonNumber = $episode->seasonNumber ?: 'UNKNOWN';
+            $episodeNumber = $episode->episodeNumber ?: $episode->id;
 
             if (!array_key_exists($seasonNumber, $seasons)) {
                 $seasons[$seasonNumber] = new Collection();
             }
-            $seasons[$seasonNumber][$episode->episodeNumber] = $episode;
+            $seasons[$seasonNumber][$episodeNumber] = $episode;
         }
 
         ksort($seasons);

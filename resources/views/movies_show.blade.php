@@ -34,6 +34,7 @@
             <tr>
                 <th>Title</th>
                 <td>{{ $movie->primaryTitle }} ({{ $movie->originalTitle }})</td>
+            </tr>
             <tr>
                 <th>Genres</th>
                 <td>

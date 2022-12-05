@@ -24,6 +24,14 @@ class Episode extends Model
     public $timestamps = false;
 
     /**
+     * The series to which the episode belong.
+     */
+    public function series()
+    {
+        return $this->belongsTo(Series::class);
+    }
+
+    /**
      * The genres that belong to the episode.
      */
     public function genres()

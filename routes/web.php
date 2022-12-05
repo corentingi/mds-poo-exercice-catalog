@@ -33,5 +33,7 @@ Route::get('/movies/{id}', [MovieController::class, 'show']);
 Route::get('/series', [SeriesController::class, 'list']);
 Route::get('/series/random', [SeriesController::class, 'random']);
 Route::get('/series/{id}', [SeriesController::class, 'show']);
+Route::get('/series/{id}/season/{season}', [SeriesController::class, 'list_season_episodes']);
+Route::get('/series/{id}/season/{season}/episode/{episode}', [SeriesController::class, 'show_episode']);
 
 Route::get('/genres', [GenreController::class, 'list']);

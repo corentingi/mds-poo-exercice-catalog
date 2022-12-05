@@ -34,6 +34,7 @@
             <tr>
                 <th>Title</th>
                 <td>{{ $series_item->primaryTitle }} ({{ $series_item->originalTitle }})</td>
+            </tr>
             <tr>
                 <th>Genres</th>
                 <td>
