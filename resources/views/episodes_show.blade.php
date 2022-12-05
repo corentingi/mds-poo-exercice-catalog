@@ -38,22 +38,22 @@
             <tr>
                 <th>Series</th>
                 <td>
-                    <a style="text-decoration: none" href="/series/{{ $episode->series->id }}">
-                        {{ $episode->series->primaryTitle }} ({{ $episode->series->originalTitle }})
+                    <a style="text-decoration: none" href="/series/{{ $episode->series[0]->id }}">
+                        {{ $episode->series[0]->primaryTitle }} ({{ $episode->series[0]->originalTitle }})
                     </a>
                 </td>
             </tr>
             <tr>
                 <th>Season</th>
                 <td>
-                    <a style="text-decoration: none" href="/series/{{ $episode->series->id }}/season/{{ $episode->seasonNumber ?: 'UNKNOWN' }}">
-                        {{ $episode->seasonNumber ?: 'N/D' }}
+                    <a style="text-decoration: none" href="/series/{{ $episode->series[0]->id }}/season/{{ $episode->pivot->seasonNumber ?: 'UNKNOWN' }}">
+                        {{ $episode->pivot->seasonNumber ?: 'N/D' }}
                     </a>
                 </td>
             </tr>
             <tr>
                 <th>Episode</th>
-                <td>{{ $episode->episodeNumber ?: 'N/D' }}</td>
+                <td>{{ $episode->pivot->episodeNumber ?: 'N/D' }}</td>
             </tr>
             <tr>
                 <th>Genres</th>

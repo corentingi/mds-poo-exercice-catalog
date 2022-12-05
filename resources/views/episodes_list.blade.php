@@ -24,7 +24,7 @@
         </div>
 
         <div>
-            <h1> Season {{ $episodes[0]->seasonNumber ?: 'UNKNOWN' }}</h1>
+            <h1> Season {{ $episodes[0]->pivot->seasonNumber ?: 'UNKNOWN' }}</h1>
         </div>
 
         <div>
@@ -35,7 +35,7 @@
                         <img class="list_image" src="{{ $episode->poster }}" alt="{{ $episode->primaryTitle }}">
                     </td>
                     <td>
-                        <a style="text-decoration: none" href="/series/{{ $episode->series->id }}/season/{{ $episode->seasonNumber ?: 'UNKNOWN' }}/episode/{{ $episode->episodeNumber ?: $episode->id }}">
+                        <a style="text-decoration: none" href="/series/{{ $episode->series[0]->id }}/season/{{ $episode->pivot->seasonNumber ?: 'UNKNOWN' }}/episode/{{ $episode->pivot->episodeNumber ?: $episode->id }}">
                             {{ $episode->originalTitle }}
                         </a>
                     </td>

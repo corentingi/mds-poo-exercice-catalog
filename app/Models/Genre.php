@@ -26,9 +26,17 @@ class Genre extends Model
     /**
      * The movies that belong to the genre.
      */
+    public function titles()
+    {
+        return $this->belongsToMany(Title::class, 'titles_genres', null, 'title_id');
+    }
+
+    /**
+     * The movies that belong to the genre.
+     */
     public function movies()
     {
-        return $this->belongsToMany(Movie::class, 'movies_genres');
+        return $this->belongsToMany(Movie::class, 'titles_genres', null, 'title_id');
     }
 
     /**
@@ -36,7 +44,7 @@ class Genre extends Model
      */
     public function series()
     {
-        return $this->belongsToMany(Series::class, 'series_genres');
+        return $this->belongsToMany(Series::class, 'titles_genres', null, 'title_id');
     }
 
     /**
@@ -44,6 +52,6 @@ class Genre extends Model
      */
     public function episodes()
     {
-        return $this->belongsToMany(Episode::class, 'episodes_genres');
+        return $this->belongsToMany(Episode::class, 'titles_genres', null, 'title_id');
     }
 }

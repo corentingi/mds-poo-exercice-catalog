@@ -3,39 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class Episode extends Model
+class Episode extends Title
 {
     use HasFactory;
 
     /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'episodes';
-
-    /**
-     * Indicates if the model should be timestamped.
+     * Indicates if the type of the title to filter.
      *
      * @var bool
      */
-    public $timestamps = false;
-
-    /**
-     * The series to which the episode belong.
-     */
-    public function series()
-    {
-        return $this->belongsTo(Series::class);
-    }
-
-    /**
-     * The genres that belong to the episode.
-     */
-    public function genres()
-    {
-        return $this->belongsToMany(Genre::class, 'episodes_genres');
-    }
+    public $titleTypes = 'tvEpisode';
 }

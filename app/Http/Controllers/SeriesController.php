@@ -46,9 +46,10 @@ class SeriesController extends Controller
             $seasonNumber = null;
         }
 
-        $episodes = Episode::with('series')
-            ->where('series_id', $id)
-            ->where('seasonNumber', $seasonNumber)
+        $series = Series::find($id);
+        $episodes = $series->episodes()
+            ->with('series')
+            ->wherePivot('seasonNumber', $seasonNumber)
             ->get();
 
         return view('episodes_list', ['episodes' => $episodes]);
@@ -59,15 +60,19 @@ class SeriesController extends Controller
             $seasonNumber = null;
         }
 
-        $query = Episode::with('series')
-            ->where('series_id', $id)
-            ->where('seasonNumber', $seasonNumber)
-            ->where(function ($query) use ($episodeNumber) {
-                $query->where('episodeNumber', $episodeNumber)
-                    ->orWhere('id', $episodeNumber);
+        $series = Series::find($id);
+        $query = $series->episodes()
+            ->with('series')
+            ->wherePivot('seasonNumber', $seasonNumber)
+            ->wherePivot('episodeNumber', $episodeNumber)
+            ->orWhere(function ($query) use ($episodeNumber) {
+                $query->where('episodeNumber', null)
+                    ->Where('id', $episodeNumber);
             });
 
         $episode = $query->first();
+
+        // dd($episode->series[0]->pivot->seasonNumber, $episode->pivot->seasonNumber);
 
         return view('episodes_show', ['episode' => $episode]);
     }
