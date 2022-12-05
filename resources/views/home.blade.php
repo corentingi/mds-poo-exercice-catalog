@@ -29,11 +29,25 @@
             width: 200px;
             height: 300px;
         }
+
+        #search {
+            width: 100%;
+            margin: auto;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>{{ config('app.name') }}</h1>
+
+
+        <div>
+            <form action="/search" method="GET">
+                <div class="form-example">
+                  <input type="text" name="q" id="search" placeholder="search movies, series, episodes" required>
+                </div>
+            </form>
+        </div>
 
         <div>
             <h3>Movies</h3>

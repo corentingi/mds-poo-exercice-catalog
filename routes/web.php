@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SeriesController;
 use App\Models\Genre;
 use App\Models\Movie;
@@ -37,3 +38,5 @@ Route::get('/series/{id}/season/{season}', [SeriesController::class, 'list_seaso
 Route::get('/series/{id}/season/{season}/episode/{episode}', [SeriesController::class, 'show_episode']);
 
 Route::get('/genres', [GenreController::class, 'list']);
+
+Route::get('/search', [SearchController::class, 'search']);
